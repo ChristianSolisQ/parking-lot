@@ -1,12 +1,12 @@
 public class Car extends Vehicle  
 {  
 // constructor of the class Car  
-public Car(String licPlate, String companyName)  
+public Car(String licPlate, String idVehicle)  
 {  
 slotsNeeded = 1;  
 siz = VSize.CarSize;  
-this.licPlate = licPlate;  
-this.companyName = companyName;  
+this.idVehicle = idVehicle;  
+this.ownerName = ownerName;  
 }  
   
 public boolean canFitInSlot(ParkingSlot spot)  

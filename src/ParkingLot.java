@@ -22,14 +22,16 @@ public ParkingLot(int numberSlots)
 this.numberSlots = numberSlots;  
 this.CompanytoVeh = new HashMap<String, ArrayList<String>>();  
 lvls = new Lvl[NUM_LVLS];  
-System.out.println("How many total spots are in the parking lot?");  
-for (int j = 0; j < NUM_LVLS; j++)  
-{  
-lvls[j] = new Lvl(j, numberSlots);
 
-System.out.println("Level " + j + " created with " + numberSlots + " " +  "slots");  
+System.out.println("How many total spots are in the parking lot?");  
+for (int j = 0; j < 1; j++)  
+{  
+lvls[j] = new Lvl(numberSlots);
+
+System.out.println("Parking long has been created with " + numberSlots + " " +  "slots");
+}
 }  
-}  
+  
   
 // a method for handling the scenario when a vehicle is parked  
 public boolean parkVehicle(Vehicle vh)  
@@ -40,19 +42,19 @@ for (int i = 0; i < lvls.length; i++)
 {  
 if (lvls[i].parkVehicle(vh))   
 {  
-System.out.println(" Level " + i + " with Vehicle Number " + vh.licPlate + " from " + vh.companyName);  
-if (this.CompanytoVeh.containsKey(vh.companyName))   
+System.out.println(" Level " + i + " with Vehicle Number " + vh.idVehicle + " from " + vh.ownerName);  
+if (this.CompanytoVeh.containsKey(vh.ownerName))   
 {  
-ArrayList<String> regNoList = this.CompanytoVeh.get(vh.companyName);  
-this.CompanytoVeh.remove(vh.companyName);  
-regNoList.add(vh.licPlate);  
-this.CompanytoVeh.put(vh.companyName, regNoList);  
+ArrayList<String> regNoList = this.CompanytoVeh.get(vh.ownerName);  
+this.CompanytoVeh.remove(vh.ownerName);  
+regNoList.add(vh.idVehicle);  
+this.CompanytoVeh.put(vh.ownerName, regNoList);  
 }   
 else   
 {  
 ArrayList<String> regNoList = new ArrayList<String>();  
-regNoList.add(vh.licPlate);  
-this.CompanytoVeh.put(vh.companyName, regNoList);  
+regNoList.add(vh.idVehicle);  
+this.CompanytoVeh.put(vh.ownerName, regNoList);  
 }  
 return true;  
 }  
@@ -60,38 +62,8 @@ return true;
 System.out.println("PARKING IS FULL");  
 return false;  
 }  
+   
   
-// method for handling the scenario when a vehicle leaves  
-public boolean leave(Vehicle vh, int lvl)  
-{  
-System.out.println(" ------------------------------------------ ");  
-lvls[lvl].slotFreed();  
-System.out.println("Slot freed from  Level " + lvl + " and exited  " + vh.licPlate + " of " + vh.companyName);  
-ArrayList<String> vhList = this.CompanytoVeh.get(vh.companyName);  
-  
-// check if the vehicle is present in the list or not  
-// if present, remove the vehicle from the list  
-if (vhList.contains(vh.licPlate))   
-{  
-vhList.remove(vh.licPlate);  
-}  
-  
-return true;  
-}  
-  
-// method for displaying the list of vehicle of the given company  
-public void ComapnyParked(String companyName)  
-{  
-System.out.println(" ------------------------------------------ ");  
-ArrayList<String> vhList = this.CompanytoVeh.get(companyName);  
-System.out.print("The vehicles of " + companyName + " : ");  
-for(String vl : vhList)  
-{  
-System.out.print(vl + "\t");  
-}  
-System.out.println();  
-}  
-
 
 public int parkingEmpty() {
 	int availableSlots = 0;

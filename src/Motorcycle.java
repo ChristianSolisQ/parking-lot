@@ -1,12 +1,15 @@
+/*
+ * This class is used to get the length of the motorcycle
+ */
 public class Motorcycle extends Vehicle  
 {  
-// constructor of the class Motorcycle   
-public Motorcycle(String licPlate, String companyName)  
+
+public Motorcycle(String idVehicle, String ownerName)  
 {  
 slotsNeeded = 1;  
 siz = VSize.Motorcycle;  
-this.licPlate = licPlate;  
-this.companyName = companyName;  
+this.idVehicle = idVehicle;  
+this.ownerName = ownerName;  
 }  
   
 public boolean canFitInSlot(ParkingSlot slot)   

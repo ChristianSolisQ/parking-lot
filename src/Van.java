@@ -1,13 +1,15 @@
-
+/*
+ * This class is used to get the length of the van
+ */
 public class Van extends Vehicle  
 {  
 	// constructor of the class Motorcycle   
-	public Van(String licPlate, String companyName)  
+	public Van(String idVehicle, String ownerName)  
 	{  
 	slotsNeeded = 3;  
 	siz = VSize.Van;  
-	this.licPlate = licPlate;  
-	this.companyName = companyName;  
+	this.idVehicle = idVehicle;  
+	this.ownerName = ownerName;  
 	}  
 	  
 	public boolean canFitInSlot(ParkingSlot slot)   

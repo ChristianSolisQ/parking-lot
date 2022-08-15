@@ -57,16 +57,8 @@ public VSize getSize()
 {  
 return siz;  
 }  
-  
-// method for removing the vehicle from the parking lot  
-public void removeVehicle()   
-{  
-l.slotFreed();  
-vh = null;  
-}  
 
-
-//method for empty 
+//method for empty fields on the parking lot
 public boolean isEmpty() {
 	for(int i = 0; i<slotNumber; i++) {
 		System.out.println();

@@ -7,7 +7,7 @@ public static void main(String argvs[])
 ParkingLot pl = new ParkingLot(10);  
 
 System.out.print("When the parking lot is empty: "); 
-System.out.println(pl.parkingEmpty());
+System.out.println(pl.parkingEmpty() + " slots");
  
   
 // car1 has license number 1234 and the company name is Microsoft  
@@ -66,7 +66,7 @@ pl.parkVehicle(m4);
 if(pl.availableParks() < 3 && pl.availableParks() > 1) {
 	System.err.println("You can't park vans in the parking lot ");
 }else if(pl.availableParks() < 1) {
-	System.err.println("You can't park motorcycles or cars or vans in the parking lot ");
+	System.err.println("You can't park any vehicles in the parking lot ");
 }else {
 	System.out.println("You can park motorcycles and cars in the parking lot ");
 }

@@ -1,13 +1,15 @@
 // import statement  
 import java.util.ArrayList;  
-  
+/* 
+ * This is the creation of father class for inherit in car, van and motorcycle  
+ */
 public abstract class Vehicle  
 {  
-// list of adding the slots that has been filled  
+// list of adding the slots that has been filled  by vehicles
 protected ArrayList<ParkingSlot> parkingSlots = new ArrayList<ParkingSlot>();  
   
-// licence plate of the vehicle  
-protected String licPlate;  
+// id of vehicles of the vehicle  
+protected String idVehicle;  
   
 // field for the slot required by a vehicle  
 protected int slotsNeeded;  
@@ -15,9 +17,8 @@ protected int slotsNeeded;
 // size of the vehicle which is determined by the type of the vehicle  
 protected VSize siz;  
   
-// field of storing the company details from where the vehicle has come  
-// for example, if a car has come from Google, then companyName will be Google  
-protected String companyName;  
+// The owner of the vehicle
+protected String ownerName;  
   
 // to get the slot required by a vehicle  
 public int getSlotsNeeded()  
@@ -36,16 +37,7 @@ public VSize getSize()
 {  
 return siz;  
 }  
-  
-public void clearSlots()  
-{  
-// remove car from slot, and notify the slot that the vehicle gone  
-for (int i = 0; i < parkingSlots.size(); i++)  
-{  
-parkingSlots.get(i).removeVehicle();  
-}  
-parkingSlots.clear();  
-}  
+ 
   
 // an abstract method that has to be defined by the child classess  
 public abstract boolean canFitInSlot(ParkingSlot spot);  

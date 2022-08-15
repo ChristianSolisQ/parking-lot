@@ -1,8 +1,7 @@
-// import statement  
-import java.util.ArrayList;  
 /* 
  * This is the creation of father class for inherit in car, van and motorcycle  
- */
+ */ 
+import java.util.ArrayList;  
 public abstract class Vehicle  
 {  
 // list of adding the slots that has been filled  by vehicles

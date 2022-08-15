@@ -4,6 +4,7 @@ public class Lvl
 private int floor;  
 private ParkingSlot[] slots;    // number of slots in each level, including large, compact and motorcycle size  
 private int availableSlots = 0; // number of free slots  
+public static int vansQuantity = 0;//count of Vans in  the parking
   
 // in each row at max there can be 10 slots  
 private static final int SLOT_PER_ROW = 10;  
@@ -57,6 +58,9 @@ for (int j = num; j < num + vh.slotsNeeded; j++)
 success &= slots[j].park(vh);  
 }  
 availableSlots = availableSlots - vh.slotsNeeded;  
+if(vh.slotsNeeded == 3) {
+	vansQuantity = vansQuantity + 1;
+}
 return success;  
 }  
   
@@ -113,5 +117,15 @@ public void slotFreed()
 {  
 availableSlots = availableSlots + 1;  
 System.out.println("Available Slots in the current level :" + availableSlots);  
+}
+
+public static int getVansQuantity() {
+	return vansQuantity;
+}
+
+public static void setVansQuantity(int vansQuantity) {
+	Lvl.vansQuantity = vansQuantity;
 }  
+
+
 }  

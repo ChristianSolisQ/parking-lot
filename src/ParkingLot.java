@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class ParkingLot  
 {  
 private Lvl[] lvls;  
-private final int NUM_LVLS = 2;  
+private final int NUM_LVLS = 1;  
 private int numberSlots;  
   
 // key contains the company name and   
@@ -92,6 +92,16 @@ System.out.print(vl + "\t");
 System.out.println();  
 }  
 
+
+public int parkingEmpty() {
+	int availableSlots = 0;
+	for (int i = 0; i < lvls.length; i++)  
+	{  
+		availableSlots = lvls[i].availableSlots();  
+	}
+	  
+	return availableSlots;
+}
 
 public int availableParks() {
 	int availableSlots = 0;

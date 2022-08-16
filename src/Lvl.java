@@ -9,7 +9,7 @@ public class Lvl
 	// in each row at max there can be 10 slots  
 	private static final int SLOT_PER_ROW = 10;  
 
-	// constructor of the class Lvl  
+
 	public Lvl( int numberSlots)  
 	{  
 		availableSlots = numberSlots;  
@@ -30,11 +30,18 @@ public class Lvl
 		}  
 	}  
 
+
+	/*
+	 * This method returns an integer with available slots
+	 */
 	public int availableSlots()  
 	{  
 		return availableSlots;  
 	}  
-
+	/*
+	 * parkVehicle(Vehicle vh) this method receive an vehicle by param
+	 * This return a boolean if we can park follow the availability of the spots
+	 */
 	public boolean parkVehicle(Vehicle vh)  
 	{  
 		//find a place to park this vehicle, return false if failed  
@@ -47,10 +54,14 @@ public class Lvl
 		System.out.print(", Slot Number " + slotNumber);  
 		return parkStartingAtSlot(slotNumber, vh);  
 	}  
+
+	/*
+	 * This method parkStartingAtSlot receives an integer is for the quantity total of spots and vehicle to insert
+	 * Validate the quantity of solt and continues tills vehicles size
+	 */
 	private boolean parkStartingAtSlot(int num, Vehicle vh)  
 	{  
-		// park a vehicle at the slot slotNumber, and continuing till vehicle.slotsNeeded  
-		//vh.clearSlots();  
+
 		boolean success = true;  
 		for (int j = num; j < num + vh.slotsNeeded; j++)  
 		{  
@@ -63,7 +74,10 @@ public class Lvl
 		return success;  
 	}  
 
-	// a method to find the vacant slot  
+	/* 
+	 * This method return an integer with quantity of slots or -1 if not found any spot.
+	 *   If the slot is equal to vehicle size
+	 */
 	private int findAvailableSlots(Vehicle vh)  
 	{  
 		int slotsNeeded = vh.getSlotsNeeded();  
